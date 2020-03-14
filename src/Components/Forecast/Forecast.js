@@ -40,7 +40,7 @@ const Forecast = () => {
     }
     return (
         <div>
-           <h2>Find Current Weather Conditions</h2>
+           <h2 className="display-4">Find Current Weather Conditions</h2>
            <form onSubmit={getForecast}>
                <input
                type="text"
@@ -58,6 +58,7 @@ const Forecast = () => {
            error={error}
            loading={loading}
            />
+
        </div>
     )
 }
