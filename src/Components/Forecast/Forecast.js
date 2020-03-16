@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import Conditions from '../Conditions/Conditions';
 import classes from "./Forecast.module.css";
+import WeekContainer from '../WeekContainer/WeekContainer';
+
 
 const Forecast = () => {
-    let [city, setCity] = useState('');
+    let [city, setCity] = useState("stockholm");
     let [responseObj, setResponseObj] = useState({});
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
+    const [stateSetter, setstateSetter] = useState();
     
+
+
+    // changeState();
+    
+
+    // function changeState() {
+
+    //     getForecast();
+    // }
+    
+
     function getForecast(e) {
         
         e.preventDefault();
         
+        
+
         if(city.length === 0) {
             return setError(true);
         }
@@ -41,6 +57,7 @@ const Forecast = () => {
     return (
         <div>
            <h2 className="display-4">Find Current Weather Conditions</h2>
+           
            <form onSubmit={getForecast}>
                <input
                type="text"
@@ -58,6 +75,12 @@ const Forecast = () => {
            error={error}
            loading={loading}
            />
+           {/* <WeekContainer
+           responseObj={responseObj}
+           error={error}
+           loading={loading}
+           city={city}
+           /> */}
 
        </div>
     )

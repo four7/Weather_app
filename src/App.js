@@ -5,6 +5,7 @@ import Forecast from './Components/Forecast/Forecast.js';
 // import Logga from './Components/Logga/Logga';
 import Pic from './weather_pic_logo.jpg';
 import Moment from 'react-moment';
+import WeekContainer from './Components/WeekContainer/WeekContainer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       </header>
       <main>
           <Forecast />
+          <WeekContainer />
         <footer>
           Page made by Four7
         </footer>

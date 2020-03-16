@@ -1,10 +1,13 @@
 import React from 'react';
 import classes from './Conditions.module.css';
-// import Card from '../Card/Card'
+import Card from '../Card/Card'
+
 // import * as weatherIcons from '../icons';
 
 const conditions = (props) => {
     
+
+        
     return (
         <div className={classes.Wrapper}>
             {props.error && <small className={classes.Small}>Please enter a valid city.</small>}
