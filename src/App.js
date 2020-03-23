@@ -18,7 +18,7 @@ function App() {
       </header>
       <main>
           <Forecast />
-          <WeekContainer />
+          {/* <WeekContainer /> */}
         <footer>
           Page made by Four7
         </footer>

@@ -13,8 +13,16 @@
     padding-bottom: 2rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    
+  }
+  .setback {
+    background-color: red;
   }
   
+  img{
+    position:relative;
+    left:21px;
+  }
   i:hover {
     /* Start the shake animation and make the animation last for 0.5 seconds */
     animation: shake 1.5s;

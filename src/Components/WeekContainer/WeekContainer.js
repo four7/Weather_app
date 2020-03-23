@@ -11,6 +11,7 @@ const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=stockholm&
 class WeekContainer extends React.Component {
   state = {
     days: []
+    // city: 
   }
 
  
@@ -20,7 +21,6 @@ class WeekContainer extends React.Component {
     .then(data => {
       console.log("Data List Loaded", data.list)
       const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
-    //   var dailyData = data;
       this.setState({days: dailyData})
     })
   }

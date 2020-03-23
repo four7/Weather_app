@@ -2,12 +2,9 @@ import React from 'react';
 import classes from './Conditions.module.css';
 import Card from '../Card/Card'
 
-// import * as weatherIcons from '../icons';
-
 const conditions = (props) => {
     
 
-        
     return (
         <div className={classes.Wrapper}>
             {props.error && <small className={classes.Small}>Please enter a valid city.</small>}
@@ -18,14 +15,13 @@ const conditions = (props) => {
                     {props.responseObj.name}
                 </strong></p>
                 <p>
-                It is currently {Math.round(props.responseObj.main.temp)}° C out with {props.responseObj.weather[0].description}.    
+                    
+                It is currently {props.time} in {props.responseObj.name} and {Math.round(props.responseObj.main.temp)}° C out with {props.responseObj.weather[0].description}.    
                 </p> 
             </div>
             : null   
             }
-            <div>
-            {/* <Card day={day} key={index}/> */}
-            </div>
+
         </div>
     )
 }

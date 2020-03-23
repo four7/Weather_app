@@ -1,33 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Conditions from '../Conditions/Conditions';
 import classes from "./Forecast.module.css";
 import WeekContainer from '../WeekContainer/WeekContainer';
+import Card from '../Card/Card';
+let API_KEY = "dfad1c91a96fdbb335fa11dea72f9afe"
+var moment = require('moment');
 
 
 const Forecast = () => {
-    let [city, setCity] = useState("stockholm");
+    let [city, setCity] = useState("Stockholm");
     let [responseObj, setResponseObj] = useState({});
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
+    let [time, setTime] = useState();
     const [stateSetter, setstateSetter] = useState();
+    const [days, setDays] = useState([]);
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`
+
+      function calculateLocalTime(timezone){
+            let today = new Date();
+            today.setHours(today.getHours(),today.getMinutes() - 60 + parseInt(timezone/60));
+            let time = today.toTimeString().split(" ");
+            console.log(time);
+        
+           return time[0];
+          }
     
+    useState(() => {
+        fetch(weatherURL)
+        .then(res => res.json())
+        .then(data => {
+        console.log("Data List Loaded", data.list)
+        const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
+        setDays(dailyData);
+        
+    })
+});
+    function formatCards () {
+    return days.map((day, index) => <Card day={day} key={index}/>)
+  }
 
-
-    // changeState();
-    
-
-    // function changeState() {
-
-    //     getForecast();
-    // }
-    
+  function getDays() {
+    fetch(weatherURL)
+    .then(res => res.json())
+    .then(data => {
+    console.log("Data List Loaded", data.list);
+    console.log(data);
+    const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
+    setDays(dailyData);
+  }
+    )};
 
     function getForecast(e) {
         
         e.preventDefault();
         
-        
-
         if(city.length === 0) {
             return setError(true);
         }
@@ -46,7 +73,9 @@ const Forecast = () => {
                 }
                 setResponseObj(response);
                 setLoading(false);
+                setTime(calculateLocalTime(response.timezone));
                 console.log(response);
+                getDays();
             })
             .catch(err => {
                 setError(true);
@@ -54,6 +83,7 @@ const Forecast = () => {
                 console.log(err.message);
             });
     }
+    
     return (
         <div>
            <h2 className="display-4">Find Current Weather Conditions</h2>
@@ -74,14 +104,14 @@ const Forecast = () => {
            responseObj={responseObj}
            error={error}
            loading={loading}
+           time={time}
            />
-           {/* <WeekContainer
-           responseObj={responseObj}
-           error={error}
-           loading={loading}
-           city={city}
-           /> */}
-
+           <h3 className="display-5 text-muted">{city}</h3>
+           <div className="row justify-content-center">
+           
+           {formatCards(getDays)}
+           </div>
+            
        </div>
     )
 }
