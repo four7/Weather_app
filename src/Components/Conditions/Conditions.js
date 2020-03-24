@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Conditions.module.css';
 import Card from '../Card/Card'
+var moment = require('moment');
 
 const conditions = (props) => {
     
@@ -11,9 +12,10 @@ const conditions = (props) => {
             {props.loading && <div className={classes.Loader}/>}
             {props.responseObj.cod === 200 ?
             <div>
-                <p><strong>
+                <br/>
+               <h3 className="display-5 text-muted">
                     {props.responseObj.name}
-                </strong></p>
+                </h3>
                 <p>
                     
                 It is currently {props.time} in {props.responseObj.name} and {Math.round(props.responseObj.main.temp)}° C out with {props.responseObj.weather[0].description}.    

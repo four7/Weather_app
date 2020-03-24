@@ -25,3 +25,11 @@
     cursor: pointer;
     margin: 5px auto;
 }
+.card {
+    width: 20rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    
+  }
