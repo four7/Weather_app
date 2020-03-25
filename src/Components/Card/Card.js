@@ -22,8 +22,8 @@ class Card extends React.Component {
         var icons = `http://openweathermap.org/img/wn/${iconID}@2x.png`
 
         return(
-            // <div className="col-auto text-center">
-            <React.Fragment>
+            <div className="col-auto text-center">
+            {/* // <React.Fragment> */}
                 <br/>
                 <div className="card text-center" style={{backgroundColor: "#B1C7CC"}}>
                 <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
@@ -37,8 +37,8 @@ class Card extends React.Component {
                     <p className="card-text"><i>{this.props.day.weather[0].description}</i></p>
                 </div>
                 </div>
-            {/* </div> */}
-            </React.Fragment>
+            </div>
+            /* // </React.Fragment> */
         )
     }
 }
