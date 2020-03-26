@@ -23,7 +23,6 @@ class Card extends React.Component {
 
         return(
             <div className="col-auto text-center">
-            {/* // <React.Fragment> */}
                 <br/>
                 <div className="card text-center" style={{backgroundColor: "#B1C7CC"}}>
                 <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
@@ -38,7 +37,6 @@ class Card extends React.Component {
                 </div>
                 </div>
             </div>
-            /* // </React.Fragment> */
         )
     }
 }

@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
         <h1 className="display-4">Weather App!</h1>
         <img src={Pic} />
       </header>

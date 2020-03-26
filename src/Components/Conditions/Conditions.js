@@ -5,7 +5,6 @@ var moment = require('moment');
 
 const conditions = (props) => {
     
-
     return (
         <div className={classes.Wrapper}>
             {props.error && <small className={classes.Small}>Please enter a valid city.</small>}
@@ -17,9 +16,7 @@ const conditions = (props) => {
                     {props.responseObj.name}
                 </h3>
                 <p>
-                
                     It is currently <strong> {props.time} </strong>  in <strong> {props.responseObj.name} </strong> and <strong> {Math.round(props.responseObj.main.temp)}° C </strong> out with <strong> {props.responseObj.weather[0].description} </strong>. 
-                
                 </p> 
             </div>
             : null   

@@ -54,15 +54,11 @@ const Forecast = () => {
 
     function getForecast(e) {
         
-        // let city = 'Stockholm';
         if(e != null){
-
             e.preventDefault();
-            // city = e.target.elements.city.value;
             setCity(e.target.value);
             console.log(city);
         }
-        // e.preventDefault();
         
         if(city.length === 0) {
             return setError(true);
@@ -117,12 +113,7 @@ const Forecast = () => {
            loading={loading}
            time={time}
            />
-           {/* <h3 className="display-5 text-muted">{city}</h3> */}
            <div className="row justify-content-center">
-           {/* <CardDisplay
-           cardShow={cardShow}
-           responseObj={responseObj}
-           /> */}
            {formatCards(getDays)}
            </div>
        </div>
