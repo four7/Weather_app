@@ -125,7 +125,6 @@ const Forecast = () => {
            /> */}
            {formatCards(getDays)}
            </div>
-            
        </div>
     )
 }

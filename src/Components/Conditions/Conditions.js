@@ -17,8 +17,9 @@ const conditions = (props) => {
                     {props.responseObj.name}
                 </h3>
                 <p>
-                    
-                It is currently {props.time} in {props.responseObj.name} and {Math.round(props.responseObj.main.temp)}° C out with {props.responseObj.weather[0].description}.    
+                
+                    It is currently <strong> {props.time} </strong>  in <strong> {props.responseObj.name} </strong> and <strong> {Math.round(props.responseObj.main.temp)}° C </strong> out with <strong> {props.responseObj.weather[0].description} </strong>. 
+                
                 </p> 
             </div>
             : null   
