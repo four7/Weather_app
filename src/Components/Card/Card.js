@@ -9,8 +9,7 @@ class Card extends React.Component {
         let newDate = new Date();
         const weekday = this.props.day.dt * 1000
         newDate.setTime(weekday)
-        console.log(newDate);
-        console.log(this.props.day)
+        console.log(this.props.day);
         
         const imgURL = "owf owf-"+ this.props.day.weather[0].id +" owf-5x red"
 

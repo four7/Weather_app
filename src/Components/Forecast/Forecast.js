@@ -14,9 +14,18 @@ const Forecast = () => {
     let [loading, setLoading] = useState(false);
     let [time, setTime] = useState();
     let [cardShow, setCardShow] = useState();
+    let [tiden, setTiden] = useState();
     const [stateSetter, setstateSetter] = useState();
     const [days, setDays] = useState([]);
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`
+
+    var hours = new Date().getHours();
+    var minutes = new Date().getMinutes();
+    var month = new Date().getMonth();
+    var day = new Date().getDate();
+    var year = new Date().getFullYear();
+    var timeNow = `${year}-${month}-${day} ${hours}:${minutes}:00`;
+
 
       function calculateLocalTime(timezone){
             let today = new Date();
@@ -33,6 +42,7 @@ const Forecast = () => {
         .then(data => {
         console.log("Data List Loaded", data.list)
         const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
+        
         setDays(dailyData);
         getForecast();
     })
@@ -47,7 +57,11 @@ const Forecast = () => {
     .then(data => {
     console.log("Data List Loaded", data.list);
     console.log(data);
-    const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"));
+    // var maxTime = data.list.map(function(b) {
+    //     return moment(b.dt_txt, `${yearNow} hh:mm:ss`);
+    // });
+    const dailyData = data.list.filter(reading => reading.dt_txt.includes('18:00:00'));
+    console.log(dailyData);
     setDays(dailyData);
   }
     )};
