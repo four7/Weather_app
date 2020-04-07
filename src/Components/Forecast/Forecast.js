@@ -106,7 +106,7 @@ const Forecast = () => {
     
     return (
         <div>
-           <h2 className="display-4">Find Current Weather Conditions</h2>
+           <h2 className="display-4">Weather Forecast</h2>
            <br/>
            <form onSubmit={getForecast}>
                <input
